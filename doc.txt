@@ -44,3 +44,5 @@ Don't do it, take the chance, take the risk, find your passion, rekindle it,
 fall in love all over again... it's worth it.
 
 Pressure is a privilege.
+
+composer update

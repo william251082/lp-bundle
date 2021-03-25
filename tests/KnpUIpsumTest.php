@@ -2,7 +2,7 @@
 
 namespace KnpU\LoremIpsumBundle\Tests;
 
-use KnpU\LoremIpsumBundle\KnpuIpsum;
+use KnpU\LoremIpsumBundle\KnpUIpsum;
 use KnpU\LoremIpsumBundle\KnpUWordProvider;
 use PHPUnit\Framework\TestCase;
 
