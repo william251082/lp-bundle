@@ -1,0 +1,37 @@
+williamdelrosario@Williams-Mac-mini LoremIpsumBundle % composer init
+
+
+  Welcome to the Composer config generator
+
+
+
+This command will guide you through creating your composer.json config.
+
+Package name (<vendor>/<name>) [williamdelrosario/lorem-ipsum-bundle]: pristine/lorem-ipsum-bundle
+Description []: Hi Lorem Ipsum
+Author [William del Rosario <pristine.web.dev@gmail.com>, n to skip]:
+Minimum Stability []:
+Package Type (e.g. library, project, metapackage, composer-plugin) []: symfony-bundle
+License []:
+
+Define your dependencies.
+
+Would you like to define your dependencies (require) interactively [yes]?
+Search for a package:
+Would you like to define your dev dependencies (require-dev) interactively [yes]?
+Search for a package:
+
+{
+    "name": "pristine/lorem-ipsum-bundle",
+    "description": "Hi Lorem Ipsum",
+    "type": "symfony-bundle",
+    "authors": [
+        {
+            "name": "William del Rosario",
+            "email": "pristine.web.dev@gmail.com"
+        }
+    ],
+    "require": {}
+}
+
+Do you confirm generation [yes]? yes
