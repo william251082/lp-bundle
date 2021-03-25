@@ -16,6 +16,13 @@
         "psr-4": {
             "KnpU\\LoremIpsumBundle\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "KnpU\\LoremIpsumBundle\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": "^5.2"
     }
 }
-

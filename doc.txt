@@ -35,3 +35,12 @@ Search for a package:
 }
 
 Do you confirm generation [yes]? yes
+
+composer require symfony/phpunit-bridge --dev
+./vendor/bin/simple-phpunit
+
+You might think that settling for mediocrity was a good idea just because it's safe.
+Don't do it, take the chance, take the risk, find your passion, rekindle it,
+fall in love all over again... it's worth it.
+
+Pressure is a privilege.
