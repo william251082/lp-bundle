@@ -41,7 +41,7 @@ class FunctionalTest extends TestCase
 
 class KnpULoremIpsumTestingKernel extends Kernel
 {
-    private array $knpUIpsumConfig;
+    private $knpUIpsumConfig;
 
     public function __construct(array $knpUIpsumConfig)
     {
