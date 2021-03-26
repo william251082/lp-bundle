@@ -1,5 +1,5 @@
 {
-    "name": "pristine/lorem-ipsum-bundle",
+    "name": "pristine/lp-bundle",
     "description": "Hi Lorem Ipsum",
     "type": "symfony-bundle",
     "license": "MIT",

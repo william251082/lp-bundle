@@ -212,7 +212,7 @@ class KnpUIpsum
     {
         if (null === $this->wordList) {
             $words = [];
-            foreach ($this->wordList as $wordProvider) {
+            foreach ($this->knpUWordProviders as $wordProvider) {
                 $words = array_merge($words, $wordProvider->getWordList());
             }
 

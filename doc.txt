@@ -65,3 +65,6 @@ where you boot a real application with some config, and check the behavior of th
 
 ./vendor/bin/simple-phpunit --filter testServiceWiringWithConfiguration
 rm -rf tests/cache
+
+
+Publishing to Packagist

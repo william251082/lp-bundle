@@ -9,15 +9,12 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
-use function foo\func;
 
 class FunctionalTest extends TestCase
 {
     public function testServiceWiring()
     {
-        $kernel = new KnpULoremIpsumTestingKernel([
-            'word_provider' => 'stub_word_list'
-        ]);
+        $kernel = new KnpULoremIpsumTestingKernel();
         $kernel->boot();
         $container = $kernel->getContainer();
 
@@ -25,28 +22,15 @@ class FunctionalTest extends TestCase
         $this->assertInstanceOf(KnpUIpsum::class, $ipsum);
         $this->assertIsString('string', $ipsum->getParagraphs());
     }
-
-    public function testServiceWiringWithConfiguration()
-    {
-        $kernel = new KnpULoremIpsumTestingKernel([
-            'word_provider' => 'stub_word_list'
-        ]);
-        $kernel->boot();
-        $container = $kernel->getContainer();
-
-        $ipsum = $container->get('knpu_lorem_ipsum.knpu_ipsum');
-        $this->assertContains('stub', $ipsum->getWords(2));
-    }
 }
 
 class KnpULoremIpsumTestingKernel extends Kernel
 {
     private $knpUIpsumConfig;
 
-    public function __construct(array $knpUIpsumConfig)
+    public function __construct()
     {
         parent::__construct('test', true);
-        $this->knpUIpsumConfig = $knpUIpsumConfig;
     }
 
     public function registerBundles()
@@ -59,9 +43,8 @@ class KnpULoremIpsumTestingKernel extends Kernel
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load(function(ContainerBuilder $containerBuilder) {
-            $containerBuilder->register('stub_word_list');
-
-            $containerBuilder->loadFromExtension('knpu_lorem_ipsum', $this->knpUIpsumConfig);
+            $containerBuilder->register('stub_word_list')
+            ->addTag('knpu_ipsum_word_provider');
         });
     }
 
