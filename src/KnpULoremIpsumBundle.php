@@ -15,5 +15,4 @@ class KnpULoremIpsumBundle extends Bundle
 
         return $this->extension;
     }
-
 }
