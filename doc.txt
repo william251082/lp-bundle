@@ -46,3 +46,22 @@ fall in love all over again... it's worth it.
 Pressure is a privilege.
 
 composer update
+
+
+First, you can test the Configuration class itself.
+ That's a nice idea if you have some really complex rules.
+ Second, you can test the extension class directly.
+ In this case, you would pass different config arrays to the load()
+ method and assert that the arguments on the service Definition objects are set correctly.
+ It's a really low-level test, but it works.
+
+And third, you can test your configuration with an integration test like we created,
+where you boot a real application with some config, and check the behavior of the final services.
+
+ To create a custom word provider, you need the class, like CustomWordProvider,
+  you need to register it as a service - which is automatic in our app -
+  and then you need to pass the service id to the word_provider option.
+
+
+./vendor/bin/simple-phpunit --filter testServiceWiringWithConfiguration
+rm -rf tests/cache
