@@ -13,13 +13,18 @@ class KnpUIpsum
 
     private $minSunshine;
 
-    private $knpUWordProvider;
+    /**
+     * @var WordProviderInterface[]
+     */
+    private $knpUWordProviders;
 
-    public function __construct(WordProviderInterface $knpUWordProvider,  bool $unicornsAreReal = true, $minSunshine = 3)
+    private $wordList;
+
+    public function __construct(array $knpUWordProviders,  bool $unicornsAreReal = true, $minSunshine = 3)
     {
         $this->unicornsAreReal = $unicornsAreReal;
         $this->minSunshine = $minSunshine;
-        $this->knpUWordProvider = $knpUWordProvider;
+        $this->knpUWordProviders = $knpUWordProviders;
     }
 
     /**
@@ -205,6 +210,17 @@ class KnpUIpsum
 
     private function getWordList(): array
     {
-        return $this->knpUWordProvider->getWordList();
+        if (null === $this->wordList) {
+            $words = [];
+            foreach ($this->wordList as $wordProvider) {
+                $words = array_merge($words, $wordProvider->getWordList());
+            }
+
+            if (count($words) <= 1) {
+                throw new \Exception('Word list must contain at least 2 words');
+            }
+            $this->wordList = $words;
+        }
+        return $this->wordList;
     }
 }
